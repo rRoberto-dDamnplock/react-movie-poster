@@ -17,10 +17,10 @@ function AddMovie(props) {
       openingText: openingTextRef.current.value,
       releaseDate: releaseDateRef.current.value,
     };
-
+/// this adds the movie with props
     props.onAddMovie(movie);
   }
-
+ 
   return (
     <form onSubmit={submitHandler}>
       <div className={classes.control}>

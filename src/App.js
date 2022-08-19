@@ -20,6 +20,7 @@ function App() {
 
       const data = await response.json();
 const loadedMovie = [];
+/// this dynamically drill through the data that has the coresponding keys.
 for (const key in data){
   loadedMovie.push({
     id: key,
@@ -47,10 +48,13 @@ for (const key in data){
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
+
+  //POST request using the fetch API, it is an async function. It can take a second argument that will set the method to POST
   async function addMovieHandler(movie) {
    const response = await fetch('https://react-http-63eaf-default-rtdb.firebaseio.com/movies.json', {
     method: 'POST', 
     body: JSON.stringify(movie),
+    // this provides information about the request context.
     headers: {
 'Content-Type': 'application/json'
     }
